@@ -6,20 +6,21 @@
 #include <iostream>
 #include <cstdint>
 #include <cassert>
+#include <cstdlib>
 
 namespace
 {
-	constexpr int16_t maxInputTries{ 99 };
+	constexpr uint16_t maxInputTries{ 99 };
 }
 
 namespace input
 {
 	using std::cout;
-	using std::int16_t;
+	using std::uint16_t;
 
 	inline double setTemperature()
 	{
-		int count{ 0 };
+		uint16_t count{ 0 };
 		while (count < maxInputTries) {
 			++count;
 			double input{ io::getTemperature() };
@@ -33,12 +34,12 @@ namespace input
 		}
 
 		cout << "\nMaximum amount of attempts reached!\n";
-		std::exit(0);
+		std::exit(1);
 	}
 
 	inline char setMode()
 	{
-		int count{ 0 };
+		uint16_t count{ 0 };
 		while (count < maxInputTries) {
 			++count;
 			char input{ io::getMode() };
@@ -52,7 +53,7 @@ namespace input
 		}
 
 		cout << "\nMaximum amount of attempts reached!\n";
-		std::exit(0);
+		std::exit(1);
 	}
 }
 

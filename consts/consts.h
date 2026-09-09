@@ -22,9 +22,11 @@ namespace consts
 		inline constexpr char fan{ 'F' };
 	}
 
-	inline string_view getModeLabel(char modeCode)
+	// Precondition: modeCode has already been validated by validate::isModeValid().
+	// Postcondition: returns the non-empty display label corresponding to modeCode.
+	inline string_view getModeLabel(char mode)
 	{
-		switch (modeCode) {
+		switch (mode) {
 		case modeCode::cool:
 			return modeLabel::cool;
 		case modeCode::fan:
