@@ -8,6 +8,11 @@ namespace io
 	char getMode();
 	void printGetModeError();
 	void printConfig(double temp, char mode);
+
+	namespace helpers
+	{
+		bool recoverFromInputError();
+	}
 }
 
 #endif
