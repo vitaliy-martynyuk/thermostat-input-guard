@@ -6,7 +6,7 @@ static double setTemperature()
 {
 	while (true) {
 		double input{ io::getTemperature() };
-		if (io::helpers::checkInputExtractionErrors() || !validate::isTemperatureValid(input)) {
+		if (io::helpers::recoverFromInputError() || !validate::isTemperatureValid(input)) {
 			io::printGetTemperatureError();
 			continue;
 		}
@@ -20,7 +20,7 @@ static char setMode()
 {
 	while (true) {
 		char input{ io::getMode() };
-		if (io::helpers::checkInputExtractionErrors() || !validate::isModeValid(input)) {
+		if (io::helpers::recoverFromInputError() || !validate::isModeValid(input)) {
 			io::printGetModeError();
 			continue;
 		}

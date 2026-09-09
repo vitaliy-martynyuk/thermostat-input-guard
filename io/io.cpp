@@ -46,7 +46,7 @@ namespace io
 
 	namespace helpers
 	{
-		bool checkInputExtractionErrors()
+		bool recoverFromInputError()
 		{
 			const bool hasUnextractedInput{ !cin.eof() && cin.peek() != '\n' };
 

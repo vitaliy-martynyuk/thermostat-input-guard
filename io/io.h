@@ -11,7 +11,7 @@ namespace io
 
 	namespace helpers
 	{
-		bool checkInputExtractionErrors();
+		bool recoverFromInputError();
 	}
 }
 
