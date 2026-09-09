@@ -12,10 +12,12 @@ namespace validate
 
 	inline bool isModeValid(char mode)
 	{
+		using namespace consts;
+
 		switch (mode) {
-		case consts::modeCode::cool:
-		case consts::modeCode::fan:
-		case consts::modeCode::heat:
+		case modeCode::cool:
+		case modeCode::fan:
+		case modeCode::heat:
 			return true;
 		default:
 			return false;
