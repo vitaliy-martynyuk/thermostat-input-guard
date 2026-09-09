@@ -1,6 +1,22 @@
 #include "io/io.h"
 #include "validate/validate.h"
+#include "consts/consts.h"
 #include <iostream>
+#include <string_view>
+
+static std::string_view getModeLabel(char modeCode)
+{
+	switch (modeCode) {
+	case consts::modeCode::cool:
+		return consts::modeLabel::cool;
+	case consts::modeCode::fan:
+		return consts::modeLabel::fan;
+	case consts::modeCode::heat:
+		return consts::modeLabel::heat;
+	default:
+		return "";
+	}
+}
 
 static double setTemperature()
 {
@@ -32,10 +48,10 @@ static char setMode()
 
 int main()
 {
-	[[maybe_unused]] double temperature{ setTemperature() };
-	[[maybe_unused]] char mode{ setMode() };
+	double temperature{ setTemperature() };
+	char mode{ setMode() };
 
-	io::printConfig(71.5, 'H');
+	io::printConfig(temperature, getModeLabel(mode));
 
 	return 0;
 }
