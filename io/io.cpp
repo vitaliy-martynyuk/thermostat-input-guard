@@ -1,6 +1,7 @@
 #include "io.h"
 #include <iostream>
 #include <limits>
+#include <string_view>
 
 namespace io
 {
@@ -8,6 +9,7 @@ namespace io
 	using std::cout;
 	using std::numeric_limits;
 	using std::streamsize;
+	using std::string_view;
 
 	double getTemperature()
 	{
@@ -37,7 +39,7 @@ namespace io
 		cout << "Invalid mode. Please enter H, C, or F.\n";
 	}
 
-	void printConfig(double temp, char mode)
+	void printConfig(double temp, string_view mode)
 	{
 		cout << "Target: " << temp << " degrees\n";
 		cout << "Mode: " << mode << "\n\n";

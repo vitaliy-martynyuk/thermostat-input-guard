@@ -1,41 +1,12 @@
-#include "io/io.h"
-#include "validate/validate.h"
-#include <iostream>
-
-static double setTemperature()
-{
-	while (true) {
-		double input{ io::getTemperature() };
-		if (io::helpers::recoverFromInputError() || !validate::isTemperatureValid(input)) {
-			io::printGetTemperatureError();
-			continue;
-		}
-
-		std::cout << '\n';
-		return input;
-	}
-}
-
-static char setMode()
-{
-	while (true) {
-		char input{ io::getMode() };
-		if (io::helpers::recoverFromInputError() || !validate::isModeValid(input)) {
-			io::printGetModeError();
-			continue;
-		}
-
-		std::cout << '\n';
-		return input;
-	}
-}
+#include "input/input.h"
+#include "consts/consts.h"
 
 int main()
 {
-	[[maybe_unused]] double temperature{ setTemperature() };
-	[[maybe_unused]] char mode{ setMode() };
+	double temperature{ input::setTemperature() };
+	char mode{ input::setMode() };
 
-	io::printConfig(71.5, 'H');
+	io::printConfig(temperature, consts::getModeLabel(mode));
 
 	return 0;
 }

@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="consts\consts.h" />
+    <ClInclude Include="input\input.h" />
     <ClInclude Include="io\io.h" />
     <ClInclude Include="validate\validate.h" />
   </ItemGroup>
